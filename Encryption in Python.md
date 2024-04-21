@@ -1,5 +1,5 @@
 # Encryption in Python
-## QKD: quantum key, ultimate secrecy
+## QKD: quantum key, ultimate secrecy.
 
 Mihai Agape
 
@@ -17,7 +17,7 @@ The decryption function—`decrypt(ciphertext, key)`—decrypts the `ciphertext`
 As can be seen above, after the generation of key using QKD, the communication doesn't involve quantum processing. The encryption and decryption operations use the QKD generated key but are implemented with classical computing devices. The transmission of the ciphertext between sender and receiver also is done through a classical channel.
 
 ## Code Snippets
-In this section I will describe how I implemented the functions for encryption and decryption of the message.
+In this section I describe how I implemented the functions for encryption and decryption of the message.
 ### Message Encryption
 Next is the definition of the encryption function, excluding the comments.
 ```python
@@ -35,28 +35,17 @@ The encryption function is implemented in four steps:
 
 ### Message Decryption
 Next is the definition of the decryption function, excluding the comments.
-```
+```python
 def decrypt(ciphertext, key):
   return encrypt(ciphertext, key)
 ```
 The decryption function is the inverse of encryption function. Because the encryption function creates the ciphertext as bitwise XOR between message and key, the inverse of the encryption function is the bitwise XOR between ciphertext and key. Therefore, the decryption is implemented with encryption function: `decrypt(ciphertext, key) = encrypt(ciphertext, key)`.
 
-Convert ASCII message to bitstring (one char is encoded with 7 bits)
-Perform XOR bitwise between message and key
-Convert bitstring to ASCII text, i.e. ciphertext
-encrypted_message coded as ASCII text
-
-The functions for encryption and decryption my message.
-Provide a description of the functions for encryption and decryption your message including: any arguments they will take, what they will return, and the general approach they will use to accomplish this.
+### Testing The Functions
 
 
-The ciphertext is sent by the sender to the receiver using a classical channel.
-
-### Message Encryption
-
-
-### Testing My Functions
 ### Other Functions
+
 #### Input the message
 #### BB84 Protocol
 
