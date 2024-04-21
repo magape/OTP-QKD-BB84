@@ -55,8 +55,7 @@ print(f'key (ASCII): \t\t{"".join(chr(int(key[i:i+7], 2)) for i in range(0, len(
 print(f'ciphertext: \t\t{ciphertext}')
 print(f'plaintext: \t\t{plain_text}')
 ```
-A random key of appropriate length was generated using the `choice` function of `random` module.
-Th
+A random key of appropriate length was generated using the `choice` function of the `random` module. The key is displayed as bitstring and also as text string. The displayed ciphertext is not intelligible. The decryption function returns the original message.
 
 ```
 message: 		QKD: quantum key, ultimate secrecy.
@@ -66,9 +65,9 @@ ciphertext: 		ff;2MSOFE_La4On\?{X^<E7W,
 plaintext: 		QKD: quantum key, ultimate secrecy.
 ```
 ### Other Functions
-Other functions 
-#### Input the message
-#### BB84 Protocol
+Other useful functions are:
+- `input_message()`, which takes the message from the user (i.e. sender); if the sender's message includes non ASCII characters, the function requests a new message from the sender; the function returns the sender's message if the message has just ASCII characters.
+- `get_key()`, which simulates all the BB84 QKD protocol; the protocol returns a bitstring key if there is not an active eavesdropper.
 
 ## Analysis
 In this section I analyze what is the impact of an eavesdropper on the encryption and decryption of data.
