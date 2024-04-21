@@ -58,24 +58,27 @@ print(f'plaintext: \t\t{plain_text}')
 A random key of appropriate length was generated using the `choice` function of `random` module.
 Th
 
-`
+```
 message: 		QKD: quantum key, ultimate secrecy.
 key (bitstring): 	01101110101101111111100010001101101010001001110100100111010101111111111100111011001011011001111011111001100110000011000110001011111010100011001101001101011111100101111011001000011110111100001011011111101101111101101111010010001110001011100000010
 key (ASCII): 		7-m":'+g2l{sb}#5|^dx-}_7R.
 ciphertext: 		ff;2MSOFE_La4On\?{X^<E7W,
 plaintext: 		QKD: quantum key, ultimate secrecy.
-`
-
+```
 ### Other Functions
-
+Other functions 
 #### Input the message
 #### BB84 Protocol
 
 ## Analysis
-If an eavesdropper try to 
-How would an eavesdropper impact the encryption and decryption of my data?
+In this section I analyze what is the impact of an eavesdropper on the encryption and decryption of data.
 
-Finally, I have written a two pages paper detailing the steps I took to write your encryption and decryption functions, explaining what would happen if there were an eavesdropper when the key was first being developed and how that would affect the encryption and decryption of the message, and why developing QKD and other quantum encryption algorithms may be important to the future (this may require additional research on your part).
+If an eavesdropper tries to intercept the quantum communication during the QKD, the sender and receiver will discover the eavesdropper and the key will not be generated. The sender and receiver will generate a QKD key just if there is not an active eavesdropper on the quantum channel. That means that the quantum process guarantees that the correct key is shared just between the sender and receiver.
+
+If an eavesdropper tries to intercept the encrypted message (sent through a classical channel) there is not a problem. The OTP encryption guarantees that it is impossible for someone to decrypt the message without the correct key.
+
+Of course, the QKD and OTP doesn’t help if an eavesdropper has access to the devices / computers of the sender and / or receiver.
+
 ## Conclusion
 
 Traditional cryptography methods rely on complex mathematical problems that are difficult to solve, but we are not sure how much time will remain so.
