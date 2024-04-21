@@ -102,4 +102,4 @@ The quantum cryptography utilizes the laws of quantum mechanics to distribute ke
 While still in its early stages, quantum encryption promises to secure communication in the quantum age.
 
 ## References
-Hsueh, C., Boone, D. Introduction to Quantum Computing [MOOC]. The Coding School. https://www.qubitbyqubit.org/programs
+Hsueh, C., Boone, D. Introduction to Quantum Computing. The Coding School. https://www.qubitbyqubit.org/programs
