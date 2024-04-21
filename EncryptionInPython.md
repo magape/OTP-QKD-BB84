@@ -1,5 +1,4 @@
-# Encryption in Python
-## QKD: quantum key, ultimate secrecy.
+# Encryption in Python | QKD: quantum key, ultimate secrecy.
 
 *__Mihai Agape__*
 
