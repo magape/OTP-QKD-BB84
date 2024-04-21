@@ -20,14 +20,14 @@ As can be seen above, after the generation of key using QKD, the communication d
 In this section I will provide how I implemented the functions for encryption and decryption of the message.
 ### Message Encryption
 Next is the definition of the encryption function.
-''''python
+```python
 def encrypt(message, key):
   bitstring_message = ''.join([f'{ord(char):07b}' for char in message])
   bitstring_cipher = ''.join(str(int(m) ^ int(k)) for m, k in zip(bitstring_message, key))
   ciphertext = ''.join(chr(int(bitstring_cipher[i:i+7], 2)) for i in
                 range(0, len(bitstring_cipher), 7))
   return ciphertext  
-''''
+```
 Convert ASCII message to bitstring (one char is encoded with 7 bits)
 Perform XOR bitwise between message and key
 Convert bitstring to ASCII text, i.e. ciphertext
