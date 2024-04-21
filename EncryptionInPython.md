@@ -1,13 +1,14 @@
 # Encryption in Python
 ## QKD: quantum key, ultimate secrecy.
 
-Mihai Agape
+*__Mihai Agape__*
 
-Palatul Copiilor Drobeta Turnu Severin
+*__Palatul Copiilor Drobeta Turnu Severin__*
 
 The purpose of the **Encryption in Python** project is to write code to encrypt and decrypt a message—**QKD: quantum key, ultimate secrecy.**—using a key created through Quantum Key Distribution (**QKD**). In this paper I analyze the work I have done, describing the steps of encryption and decryption the data. I also discuss what effect an eavesdropper would have on the success of transmitting encrypted data.
 
 ## Introduction
+
 In this section I provide a description of the functions for encryption and decryption the message.
 
 The encryption function—`encrypt(message, key)`—encrypts the `message` with the `key`, using **OTP** (One Time Pad) algorithm. The encryption function has two parameters: the message, and the key. The message is an **ASCII string** representing the information which the sender (e.g. Alice) wants to send to the receiver (e.g. Bob). Each ASCII character is coded with seven bits. A valid message must contain just ASCII characters. The key is a **bitstring* generated in advance using QKD **BB84** protocol. The length of the key must be seven times the length of the message. The encryption function returns the ciphertext as an ASCII string. The encryption function doesn't check if the message and the key are valid.
@@ -17,9 +18,13 @@ The decryption function—`decrypt(ciphertext, key)`—decrypts the `ciphertext`
 As can be seen above, after the generation of key using QKD, the communication doesn't involve quantum processing. The encryption and decryption operations use the QKD generated key but are implemented with classical computing devices. The transmission of the ciphertext between sender and receiver also is done through a classical channel.
 
 ## Code Snippets
+
 In this section I describe how I implemented the functions for encryption and decryption of the message.
+
 ### Message Encryption
+
 Next is the definition of the encryption function, excluding the comments.
+
 ```python
 def encrypt(message, key):
   bitstring_message = ''.join([f'{ord(char):07b}' for char in message])
@@ -55,7 +60,8 @@ print(f'key (ASCII): \t\t{"".join(chr(int(key[i:i+7], 2)) for i in range(0, len(
 print(f'ciphertext: \t\t{ciphertext}')
 print(f'plaintext: \t\t{plain_text}')
 ```
-A random key of appropriate length was generated using the `choice` function of the `random` module. The key is displayed as bitstring and also as text string. The displayed ciphertext is not intelligible. The decryption function returns the original message.
+
+A random key of appropriate length was generated using the `choice` function of the `random` module. The key is displayed as bitstring and also as ASCII string. The displayed ciphertext is not intelligible. The decryption function returns the original message.
 
 ```
 message: 		QKD: quantum key, ultimate secrecy.
@@ -64,12 +70,19 @@ key (ASCII): 		7-m":'+g2l{sb}#5|^dx-}_7R.
 ciphertext: 		ff;2MSOFE_La4On\?{X^<E7W,
 plaintext: 		QKD: quantum key, ultimate secrecy.
 ```
+
+The previous code has been run multiple times. Each time a different random key has been generated but the decrypted message was every time the same as the sent message.
+
+I also tested the encryption and decryption functions with different message and the decrypted message was correct each time.
+
 ### Other Functions
+
 Other useful functions are:
 - `input_message()`, which takes the message from the user (i.e. sender); if the sender's message includes non ASCII characters, the function requests a new message from the sender; the function returns the sender's message if the message has just ASCII characters.
 - `get_key()`, which simulates all the BB84 QKD protocol; the protocol returns a bitstring key if there is not an active eavesdropper.
 
 ## Analysis
+
 In this section I analyze what is the impact of an eavesdropper on the encryption and decryption of data.
 
 If an eavesdropper tries to intercept the quantum communication during the QKD, the sender and receiver will discover the eavesdropper and the key will not be generated. The sender and receiver will generate a QKD key just if there is not an active eavesdropper on the quantum channel. That means that the quantum process guarantees that the correct key is shared just between the sender and receiver.
