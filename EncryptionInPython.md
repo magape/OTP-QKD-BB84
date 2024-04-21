@@ -1,6 +1,6 @@
 # Encryption in Python | QKD: quantum key, ultimate secrecy.
 
-*__Mihai Agape__*
+[*__Mihai Agape__*](https://www.linkedin.com/in/mihaiagape/)
 
 *__Palatul Copiilor Drobeta Turnu Severin__*
 
