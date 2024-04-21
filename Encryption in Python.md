@@ -43,7 +43,7 @@ The decryption function is the inverse of encryption function. Because the encry
 
 ### Testing The Functions
 
-```
+```python
 message = 'QKD: quantum key, ultimate secrecy.'
 key = ''.join(choice('01') for _ in range(7 * len(message)))
 ciphertext = encrypt(message, key)
