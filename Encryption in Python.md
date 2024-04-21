@@ -41,8 +41,8 @@ def decrypt(ciphertext, key):
 ```
 The decryption function is the inverse of encryption function. Because the encryption function creates the ciphertext as bitwise XOR between message and key, the inverse of the encryption function is the bitwise XOR between ciphertext and key. Therefore, the decryption is implemented with encryption function: `decrypt(ciphertext, key) = encrypt(ciphertext, key)`.
 
-### Testing The Functions
-
+### Testing the Functions
+I tested the encryption and decryption functions with the message **QKD: quantum key, ultimate secrecy.**, using the code below.
 ```python
 message = 'QKD: quantum key, ultimate secrecy.'
 key = ''.join(choice('01') for _ in range(7 * len(message)))
@@ -55,8 +55,10 @@ print(f'key (ASCII): \t\t{"".join(chr(int(key[i:i+7], 2)) for i in range(0, len(
 print(f'ciphertext: \t\t{ciphertext}')
 print(f'plaintext: \t\t{plain_text}')
 ```
+A random key of appropriate length was generated using the `choice` function of `random` module.
+Th
 
-```python
+```
 message: 		QKD: quantum key, ultimate secrecy.
 key (bitstring): 	01101110101101111111100010001101101010001001110100100111010101111111111100111011001011011001111011111001100110000011000110001011111010100011001101001101011111100101111011001000011110111100001011011111101101111101101111010010001110001011100000010
 key (ASCII): 		7-m":'+g2l{sb}#5|^dx-}_7R.
@@ -70,10 +72,20 @@ plaintext: 		QKD: quantum key, ultimate secrecy.
 #### BB84 Protocol
 
 ## Analysis
+If an eavesdropper try to 
 How would an eavesdropper impact the encryption and decryption of my data?
 
 Finally, I have written a two pages paper detailing the steps I took to write your encryption and decryption functions, explaining what would happen if there were an eavesdropper when the key was first being developed and how that would affect the encryption and decryption of the message, and why developing QKD and other quantum encryption algorithms may be important to the future (this may require additional research on your part).
 ## Conclusion
-Why is the development of quantum encryption important for the future of secure communication?
+
+Traditional cryptography methods rely on complex mathematical problems that are difficult to solve, but we are not sure how much time will remain so.
+
+The quantum cryptography utilizes the laws of quantum mechanics to distribute keys (QKD) which with OTP encryption create unbreakable codes. This combination (QKD & OTP) provides:
+
+- unbreakable security (impossible to eavesdrop on communication without detection);
+- future-proof security (secure even against powerful quantum computers of the future).
+
+While still in its early stages, quantum encryption promises to secure communication in the quantum age.
+
 
 
