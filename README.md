@@ -1,6 +1,4 @@
-# OTP-QKD-BB84
-
-## QKD: quantum key, ultimate secrecy.
+# QKD: quantum key, ultimate secrecy.
 
 This repository contains my project [Encryption in Python](https://github.com/magape/OTP-QKD-BB84/blob/main/EncryptionInPython.md) for the [Qubit by Qubit's Introduction to Quantum Computing](https://www.qubitbyqubit.org/programs) course (September 2023 - April 2024).
 
