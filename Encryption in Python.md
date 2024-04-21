@@ -89,6 +89,3 @@ The quantum cryptography utilizes the laws of quantum mechanics to distribute ke
 - future-proof security (secure even against powerful quantum computers of the future).
 
 While still in its early stages, quantum encryption promises to secure communication in the quantum age.
-
-
-
