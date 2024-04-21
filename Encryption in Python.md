@@ -54,7 +54,9 @@ print(f'key (bitstring): \t{key}')
 print(f'key (ASCII): \t\t{"".join(chr(int(key[i:i+7], 2)) for i in range(0, len(key), 7))}')
 print(f'ciphertext: \t\t{ciphertext}')
 print(f'plaintext: \t\t{plain_text}')
+```
 
+```python
 message: 		QKD: quantum key, ultimate secrecy.
 key (bitstring): 	01101110101101111111100010001101101010001001110100100111010101111111111100111011001011011001111011111001100110000011000110001011111010100011001101001101011111100101111011001000011110111100001011011111101101111101101111010010001110001011100000010
 key (ASCII): 		7-m":'+g2l{sb}#5|^dx-}_7R.
