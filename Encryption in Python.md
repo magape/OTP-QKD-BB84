@@ -5,7 +5,7 @@ Mihai Agape
 
 Palatul Copiilor Drobeta Turnu Severin
 
-The purpose of the **Encryption in Python** project is to write code to encrypt and decrypt a message using a key created through QKD. In this paper I analyze the work I have done, describing the steps of encryption and decryption the data. I also discuss what effect an eavesdropper would have on the success of transmitting encrypted data.
+The purpose of the **Encryption in Python** project is to write code to encrypt and decrypt a message—**QKD: quantum key, ultimate secrecy.**—using a key created through Quantum Key Distribution (**QKD**). In this paper I analyze the work I have done, describing the steps of encryption and decryption the data. I also discuss what effect an eavesdropper would have on the success of transmitting encrypted data.
 
 ## Introduction
 In this section I provide a description of how I built the functions for encryption and decryption the message.
@@ -14,9 +14,47 @@ The encryption function—**encrypt(message, key)**—encrypts the **message** w
 
 The decryption function—**decrypt(ciphertext, key)**—decrypts the **ciphertext** (returned by the encryption function) using the same **key** as the key used for encryption. The decryption function has two parameters, the ciphertext, and the key. The ciphertext is an ASCII string representing the encrypted information which the sender obtained from the plain message and the key with the encryption function. Each ASCII character of the ciphertext is coded with seven bits. The length of the key is seven times the length of the ciphertext. The decryption function returns the plain message (used by sender as argument of the encryption function) as an ASCII string.
 
+As can be seen above, after the generation of key using QKD, the communication doesn't involve quantum processing. The encryption and decryption operations use the QKD generated key but are implemented with classical computing devices. The transmission of the ciphertext between sender and receiver also is done through a classical channel.
 
 ## Code Snippets
-Include my code for my functions.
+In this section I will provide a description of the function for encryption and decryption of the message.
+
+'''python
+def encrypt(message, key):
+  '''
+  Encrypts the message with the key using OTP (One Time Pad) algorithm.
+  Each character of the message is coded with 7 bits.
+  The key is a bitstring 7 times longer than the message.
+  The function doesn't check the parameters' values.
+
+  Parameters
+  ----------
+  message : ASCII string
+    The message that Alice wants to send to Bob.
+  key : bitstring
+    The key is generated using the QKD BB84 protocol.
+
+  Returns
+  -------
+  ASCII string
+    The returned string is the cipher resulted as XOR between message and key.
+  '''
+
+  # Convert ASCII message to bitstring (one char is encoded with 7 bits)
+  bitstring_message = ''.join([f'{ord(char):07b}' for char in message])
+
+  # Perform XOR bitwise between message and key
+  bitstring_cipher = ''.join(str(int(m) ^ int(k)) for m, k in zip(bitstring_message, key))
+  
+  # Convert bitstring to ASCII text, i.e. ciphertext
+  ciphertext = ''.join(chr(int(bitstring_cipher[i:i+7], 2)) for i in
+                range(0, len(bitstring_cipher), 7))
+
+  return ciphertext  # encrypted_message coded as ASCII text
+  
+'''
+
+
 The functions for encryption and decryption my message.
 Provide a description of the functions for encryption and decryption your message including: any arguments they will take, what they will return, and the general approach they will use to accomplish this.
 
